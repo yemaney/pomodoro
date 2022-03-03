@@ -6,9 +6,8 @@ class PomoApp:
         self.root = root
         self.bg = "#ff7575"
         self.root.configure(bg=self.bg)
-        self.root.geometry("750x750")
+        self.root.geometry("650x700")
         self.root.title("Pomodoro")
-        self.timer_text = tk.StringVar(value="25:00")
 
     def set_window(self):
         """
@@ -26,25 +25,25 @@ class PomoApp:
         self.pomodoro = tk.Button(
             self.root,
             text="Pomodoro",
-            command=lambda: self.reset_window("#ff7575", "25:00"),
-            **formatting
+            command=lambda: self.reset_window("#ff7575", "25:00", 1500),
+            **formatting,
         )
         self.short_break = tk.Button(
             self.root,
             text="Short Break",
-            command=lambda: self.reset_window("#c261ff", "05:00"),
-            **formatting
+            command=lambda: self.reset_window("#c261ff", "05:00", 300),
+            **formatting,
         )
         self.long_break = tk.Button(
             self.root,
             text="Long Break",
-            command=lambda: self.reset_window("#2ba0ff", "30:00"),
-            **formatting
+            command=lambda: self.reset_window("#2ba0ff", "30:00", 1800),
+            **formatting,
         )
 
         self.timer = tk.Label(
             self.root,
-            textvariable=self.timer_text,
+            text="25:00",
             fg="#fff",
             bg=self.bg,
             font=("Helvetica", 100),
@@ -68,7 +67,7 @@ class PomoApp:
         self.long_break.grid(row=0, column=2)
         self.timer.grid(row=1, column=1)
 
-    def reset_window(self, color: str, time: str):
+    def reset_window(self, color: str, time_str: str, time_int: int):
         """
         In charge of resetting the window when buttons are pressed. Changes the background color and the time of timer label.
 
@@ -80,10 +79,21 @@ class PomoApp:
             time value to reset the timer label to
         """
         self.bg = color
-        self.timer_text = tk.StringVar(value=time)
         self.set_window()
         self.set_grid()
         self.root.configure(bg=color)
+        self.update_timer(time_int)
+
+    def update_timer(self, countdown: int):
+
+        while countdown >= 0:
+            minutes, seconds = divmod(countdown, 60)
+            new_time_str = f"{minutes:02d}:{seconds:02d}"
+            countdown -= 1
+
+            self.timer.config(text=new_time_str)
+            self.root.update()
+            self.root.after(1000)
 
     def __call__(self):
         self.set_window()

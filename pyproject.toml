@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pomodoro"
-version = "0.3.0"
+version = "0.4.0"
 description = ""
 authors = ["yemaney <yemane_@outlook.com>"]
 
