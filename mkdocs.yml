@@ -1,15 +1,16 @@
 site_name: Pomodoro
 theme:
+  logo: technique.ico
   name: material
   palette:
     - scheme: default
-      primary: white
+      primary: red
       accent: blue
       toggle:
         name: Switch to light mode
         icon: material/lightbulb-outline
     - scheme: slate
-      primary: black
+      primary: red
       accent: blue
       toggle:
         name: Switch to dark mode

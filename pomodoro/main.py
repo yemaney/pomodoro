@@ -8,7 +8,7 @@ class PomoApp:
         self.root = root
         self.bg = "#ff7575"
         self.root.configure(bg=self.bg)
-        self.root.geometry("650x700")
+        self.root.geometry("650x500")
         self.root.title("Pomodoro")
         self.root.iconbitmap("./assets/technique.ico")
 

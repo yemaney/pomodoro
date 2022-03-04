@@ -2,5 +2,5 @@
 
 `simple python pomodoro application`
 <p align="center">
-  <img src="../pomodoro/assets/technique.ico"/>
+  <img src="technique.ico"/>
 </p>
