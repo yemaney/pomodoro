@@ -1,4 +1,7 @@
+import os
 import tkinter as tk
+
+from playsound import playsound
 
 
 class PomoApp:
@@ -78,6 +81,8 @@ class PomoApp:
         time : str
             time value to reset the timer label to
         """
+
+        playsound("./assets/mixkit-interface-hint-notification-911.wav", block=False)
         self.bg = color
         self.set_window()
         self.set_grid()
@@ -94,6 +99,8 @@ class PomoApp:
             self.timer.config(text=new_time_str)
             self.root.update()
             self.root.after(1000)
+        else:
+            playsound("./assets/mixkit-security-facility-breach-alarm-994.wav")
 
     def __call__(self):
         self.set_window()
