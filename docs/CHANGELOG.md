@@ -1,3 +1,4 @@
+- 2022-03-03  style: add pomodoro icon
 - 2022-03-03  feat: sounds added for button clicks and timer alarm
 - 2022-03-02  feat: timer coundown
 - 2022-03-02  feat: tkinter main window styling 8f0fd59

@@ -1,4 +1,3 @@
-import os
 import tkinter as tk
 
 from playsound import playsound
@@ -11,6 +10,7 @@ class PomoApp:
         self.root.configure(bg=self.bg)
         self.root.geometry("650x700")
         self.root.title("Pomodoro")
+        self.root.iconbitmap("./assets/technique.ico")
 
     def set_window(self):
         """
